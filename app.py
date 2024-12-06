@@ -36,5 +36,7 @@ def graficos():
     template = env.get_template('graficos.html')
     return template.render()
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == 'main':
+    # Obtener el puerto de la variable de entorno o usar 5000 por defecto
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
