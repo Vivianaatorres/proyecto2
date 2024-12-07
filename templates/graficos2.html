@@ -83,19 +83,16 @@
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            
             <div class="logo">
                 <img src="{{ url_for('static', filename='images/URP.png') }}" alt="Logo URP">
             </div>
-            
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                   
                     <li class="nav-item">
                         <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/graficos"> Limpieza </a>
+                        <a class="nav-link" href="/graficos"> Limpieza</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/graficos2">Prediccion</a>
@@ -108,7 +105,7 @@
 
     <!-- Contenedor principal -->
     <div class="container">
-        <h1>Limpieza en la data de la encuesta ENAHO 2020</h1>
+        <h1>Distribucion Normal</h1>
         
         
         <!-- Filas y columnas para organizar las imágenes en dos columnas -->
@@ -117,8 +114,8 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Mapa de Calor - Limpieza de Tablas</h5>
-                        <img src="{{ url_for('static', filename='images/headmap_LD.png') }}" alt="Mapa de Calor - Limpieza de tablas" class="img-small">
+                        <h5 class="card-title">Casas con Servicio Electrico  </h5>
+                        <img src="{{ url_for('static', filename='images/Pred_Electrico.png') }}" alt="Mapa de Calor - Limpieza de tablas" class="img-small">
                     </div>
                 </div>
             </div>
@@ -127,25 +124,59 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Mapa de Calor - Eliminación de Datos</h5>
-                        <img src="{{ url_for('static', filename='images/HM_Analisis_RF.png') }}" alt="Mapa de Calor - Eliminación de datos" class="img-small">
+                        <h5 class="card-title">Viviendas con agua potable</h5>
+                        <img src="{{ url_for('static', filename='images/agua_prediccion.png') }}" alt="Mapa de Calor - Eliminación de datos" class="img-small">
                     </div>
                 </div>
             </div>
         </div>
 
-        
+<!-- Contenedor secundario -->
+<div class="container">
+    <h1>Modelo Machine Learning</h1>
+    <div class="row">
+        <!-- Primer columna (Gráfico 3) -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Random Forest: Perdida  </h5>
+                    <img src="{{ url_for('static', filename='images/RN1.png') }}" alt="Mapa de Calor - Limpieza de tablas" class="img-small">
+                </div>
+            </div>
+        </div>
 
-<!-- Fila con un solo gráfico (Gráfico 3) -->
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body text-center">  <!-- Usamos "text-center" para centrar el contenido -->
-                <h5 class="card-title">Mapa de Calor sobre el Resultado Final de la Limpieza de Datos</h5>
-                <!-- Aquí, la clase "mx-auto" centra la imagen -->
-                <img src="{{ url_for('static', filename='images/HM_ResultadoFinal.png') }}" alt="Mapa de Calor - Resultado Final" class="img-small mx-auto d-block">
+        <!-- Segunda columna (Gráfico ) -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Random Forest: Perdida </h5>
+                    <img src="{{ url_for('static', filename='images/RN_2.png') }}" alt="Mapa de Calor - Eliminación de datos" class="img-small">
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+<!-- Contenedor terciario -->
+<div class="container">
+    <h1>Modelo Clasificacion Supervisada</h1>
+    <div class="row">
+        <!-- Primer columna (Gráfico 3) -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mapa de Calor - Analisis de Datos</h5>
+                    <img src="{{ url_for('static', filename='images/HM_Analisis_RF.png') }}" alt="Mapa de Calor - Limpieza de tablas" class="img-small">
+                </div>
+            </div>
+        </div>
+
+        <!-- Segunda columna (Gráfico ) -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Random Forest: Accseso a Servicios</h5>
+                    <img src="{{ url_for('static', filename='images/RFOREST.png') }}" alt="Mapa de Calor - Eliminación de datos" class="img-small">
+                </div>
+            </div>
+        </div>
+    </div>

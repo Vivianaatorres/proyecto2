@@ -1,135 +1,45 @@
-<!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENAHO 2020 - Tablas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-
-        /* Barra de navegación */
-        .navbar {
-            background-color: #6D9EEB;
-        }
-
-        .navbar a {
-            color: white;
-            padding: 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .navbar a:hover {
-            background-color: #5A85C2;
-            border-radius: 5px;
-        }
-
-        .navbar .logo img {
-            width: 150px;
-            height: auto;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-
-        .tabla-pequena {
-            margin-bottom: 20px;
-        }
-
-        .tabla-pequena h3 {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            border-radius: 5px 5px 0 0;
-            margin: 0;
-        }
-
-        .tabla-pequena table {
-            border-radius: 0 0 5px 5px;
-        }
-
-        .table-container {
-            max-height: 400px;
-            overflow-y: auto;
-            border: 1px solid #ddd;
-        }
-
-        .scroll-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .main-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .left-column,
-        .right-column {
-            flex: 1;
-            max-width: 25%;
-        }
-
-        .center-column {
-            flex: 2;
-            max-width: 50%;
-        }
-
-        @media (max-width: 992px) {
-            .left-column,
-            .right-column {
-                max-width: 100%;
-            }
-
-            .center-column {
-                max-width: 100%;
-            }
-        }
-    </style>
+    <title>Tabla de Datos desde CSV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            
-            <div class="logo">
-                <img src="{{ url_for('static', filename='images/URP.png') }}" alt="Logo URP">
-            </div>
-            
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/graficos"> Limpieza </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/graficos2">Prediccion</a>
-                    </li>
-                   
-                </ul>
-            </div>
+    <body>
+       <!-- Barra de navegación -->
+         <div class="navbar">
+             <div class="logo">
+                <a href="#">Mi Página ENAHO</a>
         </div>
-    </nav>
-    <div class="container mt-4">
-        <h1 class="text-center mb-4">Datos ENAHO 2020</h1>
-        <div class="main-container">
-            <!-- Columna izquierda -->
-            <div class="left-column">
-                <!-- Tablas pequeñas a la izquierda -->
+        <div class="menu">
+            <a href="#inicio">Inicio</a>
+            <a href="/graficos">Graficos</a>
+            <a href="#acerca">Acerca de</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        
+
+    <div class="container">
+        <h1>Datos de la Encuesta Nacional de Hogares (ENAHO) 2020</h1>
+        <p>La tabla a continuación se generó a partir de los datos de un archivo CSV.</p>
+
+        <!-- Botones de desplazamiento para la tabla principal -->
+        <div class="btn-container">
+            <button class="btn" onclick="scrollTable('left')">Izquierda</button>
+            <button class="btn" onclick="scrollTable('right')">Derecha</button>
+        </div>
+
+        <!-- Contenedor flexible para organizar la tabla principal y las tablas pequeñas -->
+        <div class="flex-container">
+            <!-- Columnas de tablas pequeñas a la izquierda -->
+            <div class="tablas-pequenas-container">
+                <!-- Tabla pequeña 1 -->
                 <div class="tabla-pequena">
                     <h3>Tipo de vivienda</h3>
-                    <table class="table table-bordered">
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>TIPO_DE_VIVIENDA</th>
@@ -162,19 +72,21 @@
                                 <td>6</td>
                             </tr>
                             <tr>
-                                <td>Local no destinado para habitación humana</td>
+                                <td>Local no destinada para habitación humana</td>
                                 <td>7</td>
                             </tr>
                             <tr>
                                 <td>Otro</td>
-                                <td>8</td>
+                                <td>8w</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Tabla pequeña 2 -->
                 <div class="tabla-pequena">
                     <h3>El material predominante en las paredes exteriores es ?</h3>
-                    <table class="table table-bordered">
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>MATERIAL_PARED_EXTERIOR</th>
@@ -221,9 +133,11 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Tabla pequeña 3 -->
                 <div class="tabla-pequena">
                     <h3>¿ El material predominante en los pisos es ?</h3>
-                    <table class="table table-bordered">
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>Categoría</th>
@@ -262,9 +176,11 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Tabla pequeña 4 -->
                 <div class="tabla-pequena">
                     <h3>¿ El material predominante en los techos es ?</h3>
-                    <table class="table table-bordered">
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>MATERIAL_TECHO</th>
@@ -309,47 +225,41 @@
                 </div>
             </div>
 
-            <!-- Columna central -->
-            <div class="center-column">
-                <h2 class="text-center">Tabla General</h2>
-                <div class="table-container" id="table-container">
-                    <table class="table table-bordered table-striped">
-                        <thead class="table-primary">
-                            <tr>
-                                {% for item in columns %}
-                                <th>{{ item }}</th>
-                                {% endfor %}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for item in registros %}
-                            <tr>
-                                <td>{{ item.TIPO_DE_VIVIENDA }}</td>
-                                <td>{{ item.MATERIAL_PARED_EXTERIOR }}</td>
-                                <td>{{ item.MATERIAL_PISO }}</td>
-                                <td>{{ item.MATERIAL_TECHO }}</td>
-                                <td>{{ item.PAGO_SERVICIO_AGUA }}</td>
-                                <td>{{ item.ELECTRICO_EXCLUSIVO_COLECTIVO }}</td>
-                                <td>{{ item.AGUA_SEMANA }}</td>
-                                <td>{{ item.TIPO_POSESION_VIVIENDA }}</td>
-                                <td>{{ item.PROCEDENCIA_DE_AGUA }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-                <div class="scroll-buttons">
-                    <button class="btn btn-primary" onclick="scrollTable('left')">← Desplazar Izquierda</button>
-                    <button class="btn btn-primary" onclick="scrollTable('right')">Desplazar Derecha →</button>
-                </div>
+            <!-- Tabla principal -->
+            <div class="table-container" id="table-container">
+                <table class='table'>
+                    <thead>
+                       <tr>
+                          {% for item in columns %}
+                          <th>{{ item }}</th>
+                          {% endfor %}
+                       </tr>
+                    </thead>
+                    <tbody>
+                       {% for item in registros %}
+                       <tr>
+                          <td>{{ item.TIPO_DE_VIVIENDA }}</td>                         
+                          <td>{{ item.MATERIAL_PARED_EXTERIOR }}</td>
+                          <td>{{ item.MATERIAL_PISO }}</td>
+                          <td>{{ item.MATERIAL_TECHO }}</td>
+                          <td>{{ item.PAGO_SERVICIO_AGUA }}</td>
+                          <td>{{ item.ELECTRICO_EXCLUSIVO_COLECTIVO }}</td>
+                          <td>{{ item.AGUA_SEMANA }}</td>
+                          <td>{{ item.TIPO_POSESION_VIVIENDA }}</td>
+                          <td>{{ item.PROCEDENCIA_DE_AGUA }}</td>
+                       </tr>
+                       {% endfor %}
+                    </tbody>
+                 </table>
+                 
             </div>
 
-            <!-- Columna derecha -->
-            <div class="right-column">
-                <!-- Tablas pequeñas a la derecha -->
+            <!-- Columnas de tablas pequeñas a la derecha -->
+            <div class="tablas-pequenas-container">
+                <!-- Tabla pequeña 5 -->
                 <div class="tabla-pequena">
-                    <h3>P110F: Pagan por el servicio de agua?</h3>
-                    <table class="table table-bordered">
+                    <h3>¿P110F: Pagan por el servicio de agua?</h3>
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>Opción</th>
@@ -368,9 +278,11 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Tabla pequeña 6 -->
                 <div class="tabla-pequena">
                     <h3>P112A: ¿El servicio eléctrico de su hogar es?</h3>
-                    <table class="table table-bordered">
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>Opción</th>
@@ -393,9 +305,11 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Tabla pequeña 7 -->
                 <div class="tabla-pequena">
                     <h3>P110C: ¿El hogar tiene acceso al servicio de agua todos los días de la semana?</h3>
-                    <table class="table table-bordered">
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>Opción</th>
@@ -414,9 +328,11 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Tabla pequeña 8 -->
                 <div class="tabla-pequena">
                     <h3>DOMINIO - Dominio Geográfico</h3>
-                    <table class="table table-bordered">
+                    <table class='table'>
                         <thead>
                             <tr>
                                 <th>Región</th>
@@ -465,12 +381,20 @@
 
     <script>
         function scrollTable(direction) {
-            const container = document.getElementById('table-container');
-            container.scrollBy({
-                top: 0,
-                left: direction === 'left' ? -100 : 100,
-                behavior: 'smooth'
-            });
+            var container = document.getElementById('table-container');
+            if (direction === 'left') {
+                container.scrollBy({
+                    top: 0,
+                    left: -100, // Ajusta la cantidad de desplazamiento
+                    behavior: 'smooth'
+                });
+            } else if (direction === 'right') {
+                container.scrollBy({
+                    top: 0,
+                    left: 100, // Ajusta la cantidad de desplazamiento
+                    behavior: 'smooth'
+                });
+            }
         }
     </script>
 </body>
