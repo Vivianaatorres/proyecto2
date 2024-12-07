@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 # Función para leer los datos desde un archivo CSV
 def leer_datos_csv(ruta_archivo):

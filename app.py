@@ -1,5 +1,4 @@
-from fasthtml.common import FastHTML, serve
-from flask import Flask, render_template, send_from_directory,url_for
+from flask import Flask,url_for
 from jinja2 import Environment, FileSystemLoader
 
 from limpieza import leer_datos_csv
